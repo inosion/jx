@@ -9,16 +9,19 @@ const USAGE: &'static str = "
 JSON XPather
 
 Usage:
-  jx [-i <json_filepath>] [-x] <xpath_expression>
+  jx [-x] [-i JSONFILE] XPATH_EXPRESSION
   jx (-h | --help)
   jx --version
 
+
+Arguments:
+  XPATH_EXPRESSION    The XPATH String [default: /]
+
 Options:
+  -i JSONFILE         JSON File
+  -x                  Output XML
   -h --help           Show this screen.
   --version           Show version.
-  -i <json_filepath>  JSON File
-  -x                  Output XML
-  <xpath_expression>  The XPATH String [default: /]
 
 Details:
   jx applies an xpath expression to the JSON document. 
@@ -27,7 +30,7 @@ Details:
 
 #[derive(Debug, Deserialize)]
 struct Args {
-    flag_xml_out: bool,
+    flag_x: bool,
     arg_xpath_expression: String,
     arg_json_filepath: Option<String>,
 }
